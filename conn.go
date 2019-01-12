@@ -65,6 +65,12 @@ func (c *Conn) SendMessage(msg *Message) error {
 	return nil
 }
 
+// SendBytes send []byte
+func (c *Conn) SendBytes(msg []byte) error {
+	c.sendCh <- msg
+	return nil
+}
+
 // writeCoroutine write coroutine
 func (c *Conn) writeCoroutine(ctx context.Context) {
 	hbData := make([]byte, 0)

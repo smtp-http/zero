@@ -58,6 +58,7 @@ func HandleMessage(s *Session, msg *Message) {
 		var data []byte = []byte(str)
 		msg := NewMessage(12,data)
 		conn.SendMessage(msg)
+		conn.SendBytes(data)
 	}
 }
 
@@ -92,6 +93,6 @@ func NewClientConnect() {
 	}
 	conn.Write(data)
 
-	
+
 
 }
